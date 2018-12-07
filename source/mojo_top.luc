@@ -23,10 +23,10 @@ module mojo_top (
     output button_col[6],   // coloums in keypad
     input button_row[5],     // rows in keypad
     output seven_seg[7],    // individual led segment in a 7segment display
-    output seg_sel[6],      
+    output seg_sel[6],      // to select one for the 7segment display
 
-    output gnd,
-    output pwr
+    output gnd,             // ground for red LED
+    output pwr              // vcc for button[4:0], enter_led and guess_led
 
   ) {
 
@@ -42,25 +42,19 @@ module mojo_top (
   }
   
   always {
-    ////////////////////
-    // INITIALIZATIONS//
-    ////////////////////
-
     reset_cond.in = ~rst_n; // input raw inverted reset signal
     rst = reset_cond.out;   // conditioned reset
 
-    ////////////// turn LEDs off
-    led = 8h00;
-
     ////////////// Unused
+    led = 8h00;
     spi_miso = bz;          // not using SPI
     spi_channel = bzzzz;    // not using flags
     avr_rx = bz;            // not using serial port
 
     ////////////// Others
     red_led = state_m.red_led;
-    enter_led = state_m.enter_led;      //RGB led off is 1
-    guess_led = state_m.guess_led;      //RGB led off is 1
+    enter_led = state_m.enter_led;
+    guess_led = state_m.guess_led;
     seven_seg = state_m.seven_seg;
     seg_sel = state_m.seg_sel;
     gnd = 0;
@@ -68,6 +62,5 @@ module mojo_top (
     button_col = state_m.button_col;
     state_m.button_row = button_row;
     state_m.button = button;
-
   }
 }
