@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-DESKTOP-R1HLLTC::  Fri Dec 07 07:43:44 2018
+DESKTOP-R1HLLTC::  Fri Dec 07 08:35:29 2018
 
 par -intstyle pa -w -mt on mojo_top_0.ncd mojo_top_0_routed.ncd 
 
@@ -126,8 +126,8 @@ Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL 
 
 Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
 
-Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 5 secs 
-Total REAL time to Router completion: 5 secs 
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
+Total REAL time to Router completion: 6 secs 
 Total CPU time to Router completion (all processors): 6 secs 
 
 Generating "PAR" statistics.
@@ -174,7 +174,7 @@ All signals are completely routed.
 WARNING:Par:283 - There are 6 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 Total REAL time to PAR completion: 6 secs 
-Total CPU time to PAR completion (all processors): 6 secs 
+Total CPU time to PAR completion (all processors): 7 secs 
 
 Peak Memory Usage:  304 MB
 

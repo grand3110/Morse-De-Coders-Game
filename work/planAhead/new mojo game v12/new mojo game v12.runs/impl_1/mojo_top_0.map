@@ -8,7 +8,7 @@ Target Device  : xc6slx9
 Target Package : tqg144
 Target Speed   : -2
 Mapper Version : spartan6 -- $Revision: 1.55 $
-Mapped Date    : Fri Dec 07 07:43:31 2018
+Mapped Date    : Fri Dec 07 08:35:16 2018
 
 Mapping design into LUTs...
 WARNING:MapLib:701 - Signal spi_channel[3] connected to top level port
@@ -29,8 +29,8 @@ Updating timing models...
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
-Total REAL time at the beginning of Placer: 5 secs 
-Total CPU  time at the beginning of Placer: 5 secs 
+Total REAL time at the beginning of Placer: 4 secs 
+Total CPU  time at the beginning of Placer: 4 secs 
 
 Phase 1.1  Initial Placement Analysis
 Phase 1.1  Initial Placement Analysis (Checksum:e477fb9) REAL time: 5 secs 
@@ -65,22 +65,22 @@ Phase 8.5  Local Placement Optimization (Checksum:7c6110c9) REAL time: 8 secs
 Phase 9.8  Global Placement
 ...............................................
 ...............................................
-Phase 9.8  Global Placement (Checksum:c7104fcb) REAL time: 9 secs 
+Phase 9.8  Global Placement (Checksum:c7104fcb) REAL time: 8 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:c7104fcb) REAL time: 9 secs 
+Phase 10.5  Local Placement Optimization (Checksum:c7104fcb) REAL time: 8 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:66010aeb) REAL time: 10 secs 
+Phase 11.18  Placement Optimization (Checksum:66010aeb) REAL time: 9 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:66010aeb) REAL time: 10 secs 
+Phase 12.5  Local Placement Optimization (Checksum:66010aeb) REAL time: 9 secs 
 
 Phase 13.34  Placement Validation
-Phase 13.34  Placement Validation (Checksum:5d8095aa) REAL time: 10 secs 
+Phase 13.34  Placement Validation (Checksum:5d8095aa) REAL time: 9 secs 
 
 Total REAL time to Placer completion: 10 secs 
-Total CPU  time to Placer completion: 10 secs 
+Total CPU  time to Placer completion: 9 secs 
 Running post-placement packing...
 Writing output files...
 
@@ -166,8 +166,8 @@ Specific Feature Utilization:
 Average Fanout of Non-Clock Nets:                3.92
 
 Peak Memory Usage:  317 MB
-Total REAL time to MAP completion:  11 secs 
-Total CPU time to MAP completion (all processors):   11 secs 
+Total REAL time to MAP completion:  10 secs 
+Total CPU time to MAP completion (all processors):   10 secs 
 
 Mapping completed.
 See MAP report file "mojo_top_0.mrp" for details.

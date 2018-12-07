@@ -22,8 +22,8 @@ module mojo_top (
 
     output button_col[6],   // coloums in keypad
     input button_row[5],     // rows in keypad
-    output seven_seg[7],
-    output seg_sel[6],
+    output seven_seg[7],    // individual led segment in a 7segment display
+    output seg_sel[6],      
 
     output gnd,
     output pwr

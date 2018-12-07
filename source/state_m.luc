@@ -135,12 +135,14 @@ module state_m (
           length.d = length.q - 1;
         }
         
+        // to switch to encoder input mode
         if(start_edge.out ==1){
           entry_count.d = 0;
           occupied.d = 0;          
           game.d = game.INPUT1;
         }
-        
+      
+      //encoder input mode  
       game.INPUT1:
           if(user.q == 0){
             enter_led[0] = 0;
@@ -149,13 +151,15 @@ module state_m (
             enter_led[1] = 0;
           }
           seg.values[0] = count.q;
-          if(count.q<length.q){        
+          if(count.q<length.q){ 
+            //detects if any button is pressed        
             if(detect.somechar!=5h1F && occupied.q == 0){
               question.write_data = detect.somechar;
               question.write_en = 1;
               occupied.d = 1;
             }
           }
+          //detects is the previously pressed button is released
           if(detect.somechar == 5h1F&&occupied.q==1){
             delay.d = delay.q +1;
             if(delay.q[18] == 1){
@@ -165,41 +169,47 @@ module state_m (
               count.d = count.q + 1;
             }  
           }
-          
+          // to switch to morse blinker mode
           if(start_edge.out ==1 && count.q >= length.q){
             question.write_en = 0;
             entry_count.d = 0;
             count.d = 0;          
             game.d = game.DISPLAY;
           }
-       
+       // switch to morse blinker mode
        game.DISPLAY:
+        //plays the morse code base on encoders data in the ram
         if (dm.ra < length.q){
-          dm.play = 1;      //dm will go to play state
-          question.address = dm.ra; //read from ram {5h12, 5he, 5h12}, when ra = 4, this block won't be executed
-          dm.data = question.read_data; //dm.data valid input should cause led to blink at correct intervals
-        } 
-        else { //ra = 4, dm.play=0 will reset dm.ra, which will cause if block to be executed again
+          dm.play = 1;                                                    //dm will go to play state
+          question.address = dm.ra; 
+          dm.data = question.read_data;                                   //dm.data valid input should cause led to blink at correct intervals
+        }  
+        else{
           dm.play = 0;
           game.d = game.REPEAT;
         }
+        // to switch to idle mode
         if(start_edge.out ==1){
-          entry_count.d = 0;     //prepare for next input
-          occupied.d = 0;        //prepare for next input
+          entry_count.d = 0;   
+          occupied.d = 0;    
           dm.play = 0;
           game.d = game.IDLE;
         }
-        
+       
+       // repeat mode to either repeat morse blinker or continue to decoder input mode   
        game.REPEAT:
+        // to switch to decoder input mode
         if(start_edge.out ==1){
-          entry_count.d = 0;     //prepare for next input
-          occupied.d = 0;        //prepare for next input
+          entry_count.d = 0;
+          occupied.d = 0;
           game.d = game.INPUT2;
         }
+        // to switch to morse blinker mode
         if(s_edgeup.out == 1||s_edgedown.out == 1||l_edgeup.out == 1||l_edgedown.out == 1){        
           game.d = game.DISPLAY;
         }
-       
+        
+       // decoder input mode
        game.INPUT2:
          if(user.q == 0){
            guess_led[1] = 0;
@@ -208,13 +218,16 @@ module state_m (
            guess_led[0] = 0;
          }
          seg.values[0] = count.q;
-         if(count.q<length.q){ 
+        
+         if(count.q<length.q){
+           //detects if any button is pressed 
            if(detect.somechar!= 5h1F && occupied.q == 0){
              answer.write_data = detect.somechar;
              answer.write_en = 1;
              occupied.d = 1;
            }
          }
+         //detects is the previously pressed button is released
          if(detect.somechar == 5h1F&&occupied.q==1){
            delay.d = delay.q +1;
            if(delay.q[18] == 1){
@@ -224,7 +237,7 @@ module state_m (
              count.d = count.q + 1;
            }  
          }
-        
+        // to switch to check mode
         if(start_edge.out ==1 && count.q >= length.q){
           entry_count.d = 0;
           occupied.d = 0; 
@@ -232,10 +245,11 @@ module state_m (
           check.calc = 1;     
           game.d = game.CHECK;
         }
-        
+      
+      // check mode    
       game.CHECK:
         guess_led[0] = 1;
-        check.calc = 1; 
+        check.calc = 1;                                           // to enable comparing the 2 input data sets
         
         question.write_en = 0;
         answer.write_en = 0;
@@ -246,8 +260,9 @@ module state_m (
         check.adata = question.read_data;
         check.bdata = answer.read_data;
         
+        //to store respective user's score 
         if (check.address >= length.q ){ //length = 5d5
-          check.calc = 0;
+          check.calc = 0;                                         // to enable comparing the 2 input data sets
           if(user.q == 0){
             score1.d[7:4] = score1.q[7:4] + check.tens;
             score1.d[3:0] = score1.q[3:0] + check.ones;
@@ -259,9 +274,11 @@ module state_m (
           game.d = game.SCORE;
         
         }   
-        
+      // diplay score mode  
       game.SCORE:
         guess_led = 0;
+        
+        // to switch to either encoder input mode or idle mode depending on player's turn
         if (start_edge.out ==1){
           if(user.q==0){
             user.d = 1;
