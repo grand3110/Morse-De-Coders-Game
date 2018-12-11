@@ -68,17 +68,17 @@ NET "guess_led[0]" IOSTANDARD = LVTTL;
 NET "guess_led[1]" LOC = P9;
 NET "guess_led[1]" IOSTANDARD = LVTTL;
 
-NET "button_col[0]" LOC = P14;
+NET "button_col[0]" LOC = P84;
 NET "button_col[0]" IOSTANDARD = LVTTL;
-NET "button_col[1]" LOC = P16;
+NET "button_col[1]" LOC = P82;
 NET "button_col[1]" IOSTANDARD = LVTTL;
-NET "button_col[2]" LOC = P21;
+NET "button_col[2]" LOC = P80;
 NET "button_col[2]" IOSTANDARD = LVTTL;
-NET "button_col[3]" LOC = P23;
+NET "button_col[3]" LOC = P78;
 NET "button_col[3]" IOSTANDARD = LVTTL;
-NET "button_col[4]" LOC = P26;
+NET "button_col[4]" LOC = P74;
 NET "button_col[4]" IOSTANDARD = LVTTL;
-NET "button_col[5]" LOC = P29;
+NET "button_col[5]" LOC = P66;
 NET "button_col[5]" IOSTANDARD = LVTTL;
 
 NET "button_row[0]" LOC = P104;

@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Fri Dec 07 08:35:26 2018
+// Written by: Map P.20131013 on Tue Dec 11 08:12:47 2018
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -24,12 +24,12 @@ COMP "seven_seg[4]" LOCATE = SITE "P138" LEVEL 1;
 COMP "seven_seg[5]" LOCATE = SITE "P132" LEVEL 1;
 COMP "seven_seg[6]" LOCATE = SITE "P134" LEVEL 1;
 COMP "rst_n" LOCATE = SITE "P38" LEVEL 1;
-COMP "button_col[0]" LOCATE = SITE "P14" LEVEL 1;
-COMP "button_col[1]" LOCATE = SITE "P16" LEVEL 1;
-COMP "button_col[2]" LOCATE = SITE "P21" LEVEL 1;
-COMP "button_col[3]" LOCATE = SITE "P23" LEVEL 1;
-COMP "button_col[4]" LOCATE = SITE "P26" LEVEL 1;
-COMP "button_col[5]" LOCATE = SITE "P29" LEVEL 1;
+COMP "button_col[0]" LOCATE = SITE "P84" LEVEL 1;
+COMP "button_col[1]" LOCATE = SITE "P82" LEVEL 1;
+COMP "button_col[2]" LOCATE = SITE "P80" LEVEL 1;
+COMP "button_col[3]" LOCATE = SITE "P78" LEVEL 1;
+COMP "button_col[4]" LOCATE = SITE "P74" LEVEL 1;
+COMP "button_col[5]" LOCATE = SITE "P66" LEVEL 1;
 COMP "red_led" LOCATE = SITE "P34" LEVEL 1;
 COMP "button_row[0]" LOCATE = SITE "P104" LEVEL 1;
 COMP "button_row[1]" LOCATE = SITE "P101" LEVEL 1;
@@ -48,7 +48,9 @@ COMP "spi_ss" LOCATE = SITE "P48" LEVEL 1;
 COMP "spi_mosi" LOCATE = SITE "P44" LEVEL 1;
 COMP "guess_led[0]" LOCATE = SITE "P7" LEVEL 1;
 COMP "guess_led[1]" LOCATE = SITE "P9" LEVEL 1;
-TIMEGRP clk = BEL "state_m/M_length_q_3" BEL "state_m/M_length_q_2" BEL
+TIMEGRP clk = BEL "state_m/M_count_q_3" BEL "state_m/M_count_q_2" BEL
+        "state_m/M_count_q_1" BEL "state_m/M_count_q_0" BEL
+        "state_m/M_length_q_3" BEL "state_m/M_length_q_2" BEL
         "state_m/M_length_q_1" BEL "state_m/M_length_q_0" BEL
         "state_m/M_speed_q_2" BEL "state_m/M_speed_q_1" BEL
         "state_m/M_speed_q_0" BEL "state_m/M_game_q_FSM_FFd1" BEL
@@ -70,48 +72,47 @@ TIMEGRP clk = BEL "state_m/M_length_q_3" BEL "state_m/M_length_q_2" BEL
         "state_m/M_delay_q_5" BEL "state_m/M_delay_q_4" BEL
         "state_m/M_delay_q_3" BEL "state_m/M_delay_q_2" BEL
         "state_m/M_delay_q_1" BEL "state_m/M_delay_q_0" BEL
-        "state_m/M_count_q_3" BEL "state_m/M_count_q_2" BEL
-        "state_m/M_count_q_1" BEL "state_m/M_count_q_0" BEL
         "state_m/start_edge/M_last_q" BEL "state_m/l_edgedown/M_last_q" BEL
         "state_m/settings/M_incr_q_5" BEL "state_m/settings/M_incr_q_4" BEL
         "state_m/settings/M_incr_q_3" BEL "state_m/settings/M_incr_q_2" BEL
         "state_m/settings/M_incr_q_1" BEL "state_m/settings/M_incr_q_0" BEL
-        "state_m/s_edgeup/M_last_q" BEL "state_m/question/read_data_3_1" BEL
+        "state_m/s_edgeup/M_last_q" BEL "state_m/question/read_data_1_1" BEL
         "state_m/question/Mram_ram5" BEL "state_m/question/Mram_ram4" BEL
         "state_m/question/Mram_ram2" BEL "state_m/question/Mram_ram1" BEL
         "state_m/question/read_data_0" BEL "state_m/question/read_data_1" BEL
         "state_m/question/read_data_2" BEL "state_m/question/read_data_3" BEL
         "state_m/question/read_data_4" BEL "state_m/question/read_data_0_1"
-        BEL "state_m/question/read_data_2_1" BEL
-        "state_m/question/read_data_1_1" BEL "state_m/question/Mram_ram3" BEL
-        "state_m/answer/read_data_4" BEL "state_m/answer/Mram_ram4" BEL
+        BEL "state_m/question/read_data_2_1" BEL "state_m/question/Mram_ram3"
+        BEL "state_m/answer/read_data_4" BEL "state_m/answer/Mram_ram4" BEL
         "state_m/answer/Mram_ram3" BEL "state_m/answer/Mram_ram5" BEL
         "state_m/answer/Mram_ram1" BEL "state_m/answer/read_data_0" BEL
         "state_m/answer/read_data_1" BEL "state_m/answer/read_data_2" BEL
         "state_m/answer/read_data_3" BEL "state_m/answer/Mram_ram2" BEL
         "state_m/l_edgeup/M_last_q" BEL "state_m/s_edgedown/M_last_q" BEL
-        "state_m/dm/M_tmr_q_26_1" BEL "state_m/dm/M_tmr_q_27_1" BEL
-        "state_m/dm/M_tmr_q_28_1" BEL "state_m/dm/M_tmr_q_29_1" BEL
-        "state_m/dm/M_tmr_q_29_2" BEL "state_m/dm/M_signal_q" BEL
-        "state_m/dm/M_tmr_q_10" BEL "state_m/dm/M_tmr_q_11" BEL
-        "state_m/dm/M_tmr_q_12" BEL "state_m/dm/M_tmr_q_13" BEL
-        "state_m/dm/M_tmr_q_14" BEL "state_m/dm/M_tmr_q_15" BEL
-        "state_m/dm/M_tmr_q_20" BEL "state_m/dm/M_tmr_q_16" BEL
-        "state_m/dm/M_tmr_q_21" BEL "state_m/dm/M_tmr_q_17" BEL
-        "state_m/dm/M_tmr_q_22" BEL "state_m/dm/M_tmr_q_18" BEL
-        "state_m/dm/M_tmr_q_23" BEL "state_m/dm/M_tmr_q_19" BEL
-        "state_m/dm/M_tmr_q_24" BEL "state_m/dm/M_tmr_q_25" BEL
-        "state_m/dm/M_tmr_q_30" BEL "state_m/dm/M_tmr_q_26" BEL
-        "state_m/dm/M_tmr_q_27" BEL "state_m/dm/M_tmr_q_28" BEL
-        "state_m/dm/M_tmr_q_29" BEL "state_m/dm/M_tmr_q_0" BEL
-        "state_m/dm/M_tmr_q_1" BEL "state_m/dm/M_tmr_q_2" BEL
-        "state_m/dm/M_tmr_q_3" BEL "state_m/dm/M_tmr_q_4" BEL
-        "state_m/dm/M_tmr_q_5" BEL "state_m/dm/M_tmr_q_6" BEL
-        "state_m/dm/M_tmr_q_7" BEL "state_m/dm/M_tmr_q_8" BEL
-        "state_m/dm/M_tmr_q_9" BEL "state_m/dm/M_state_q" BEL
-        "state_m/dm/M_read_q_0" BEL "state_m/dm/M_read_q_1" BEL
-        "state_m/dm/M_read_q_2" BEL "state_m/dm/M_read_q_3" BEL
-        "state_m/dm/M_read_q_4" BEL "state_m/dm/M_tmr_q_30_1" BEL
+        "state_m/dm/M_tmr_q_26_1" BEL "state_m/dm/M_tmr_q_26_2" BEL
+        "state_m/dm/M_tmr_q_27_1" BEL "state_m/dm/M_tmr_q_27_2" BEL
+        "state_m/dm/M_tmr_q_28_1" BEL "state_m/dm/M_tmr_q_28_2" BEL
+        "state_m/dm/M_tmr_q_29_1" BEL "state_m/dm/M_tmr_q_29_2" BEL
+        "state_m/dm/M_signal_q" BEL "state_m/dm/M_tmr_q_10" BEL
+        "state_m/dm/M_tmr_q_11" BEL "state_m/dm/M_tmr_q_12" BEL
+        "state_m/dm/M_tmr_q_13" BEL "state_m/dm/M_tmr_q_14" BEL
+        "state_m/dm/M_tmr_q_15" BEL "state_m/dm/M_tmr_q_20" BEL
+        "state_m/dm/M_tmr_q_16" BEL "state_m/dm/M_tmr_q_21" BEL
+        "state_m/dm/M_tmr_q_17" BEL "state_m/dm/M_tmr_q_22" BEL
+        "state_m/dm/M_tmr_q_18" BEL "state_m/dm/M_tmr_q_23" BEL
+        "state_m/dm/M_tmr_q_19" BEL "state_m/dm/M_tmr_q_24" BEL
+        "state_m/dm/M_tmr_q_25" BEL "state_m/dm/M_tmr_q_30" BEL
+        "state_m/dm/M_tmr_q_26" BEL "state_m/dm/M_tmr_q_27" BEL
+        "state_m/dm/M_tmr_q_28" BEL "state_m/dm/M_tmr_q_29" BEL
+        "state_m/dm/M_tmr_q_0" BEL "state_m/dm/M_tmr_q_1" BEL
+        "state_m/dm/M_tmr_q_2" BEL "state_m/dm/M_tmr_q_3" BEL
+        "state_m/dm/M_tmr_q_4" BEL "state_m/dm/M_tmr_q_5" BEL
+        "state_m/dm/M_tmr_q_6" BEL "state_m/dm/M_tmr_q_7" BEL
+        "state_m/dm/M_tmr_q_8" BEL "state_m/dm/M_tmr_q_9" BEL
+        "state_m/dm/M_state_q" BEL "state_m/dm/M_read_q_0" BEL
+        "state_m/dm/M_read_q_1" BEL "state_m/dm/M_read_q_2" BEL
+        "state_m/dm/M_read_q_3" BEL "state_m/dm/M_read_q_4" BEL
+        "state_m/dm/M_tmr_q_30_1" BEL "state_m/dm/M_tmr_q_30_2" BEL
         "state_m/start_btn/M_ctr_q_19" BEL "state_m/start_btn/M_ctr_q_18" BEL
         "state_m/start_btn/M_ctr_q_17" BEL "state_m/start_btn/M_ctr_q_16" BEL
         "state_m/start_btn/M_ctr_q_15" BEL "state_m/start_btn/M_ctr_q_14" BEL
@@ -154,7 +155,8 @@ TIMEGRP clk = BEL "state_m/M_length_q_3" BEL "state_m/M_length_q_2" BEL
         BEL "state_m/detect/M_counter_q_5" BEL "state_m/detect/M_counter_q_4"
         BEL "state_m/detect/M_counter_q_3" BEL "state_m/detect/M_counter_q_2"
         BEL "state_m/detect/M_counter_q_1" BEL "state_m/detect/M_counter_q_0"
-        BEL "state_m/detect/M_button_col_cycler_q_4" BEL
+        BEL "state_m/detect/M_button_col_cycler_q_5" BEL
+        "state_m/detect/M_button_col_cycler_q_4" BEL
         "state_m/detect/M_button_col_cycler_q_3" BEL
         "state_m/detect/M_button_col_cycler_q_2" BEL
         "state_m/detect/M_button_col_cycler_q_1" BEL

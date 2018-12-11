@@ -184,7 +184,7 @@ INFO:Xst:3210 - "D:/Grand/SUTD/Term 4 (ISTD)/50.002/1D/Morse De-Coders Game/work
     Found 4-bit comparator greater for signal <GND_3_o_M_length_q[3]_LessThan_15_o> created at line 264
     Found 4-bit comparator greater for signal <M_count_q[3]_M_length_q[3]_LessThan_23_o> created at line 280
     Found 5-bit comparator greater for signal <M_dm_ra[4]_GND_3_o_LessThan_45_o> created at line 304
-    Found 5-bit comparator greater for signal <GND_3_o_INV_52_o> created at line 369
+    Found 5-bit comparator greater for signal <GND_3_o_INV_53_o> created at line 369
     Summary:
 	inferred   9 Adder/Subtractor(s).
 	inferred  60 D-type flip-flop(s).
@@ -289,11 +289,11 @@ Unit <pipeline_21> synthesized.
 Synthesizing Unit <input_capture_16>.
     Related source file is "D:/Grand/SUTD/Term 4 (ISTD)/50.002/1D/Morse De-Coders Game/work/planAhead/new mojo game v12/new mojo game v12.srcs/sources_1/imports/verilog/input_capture_16.v".
     Found 24-bit register for signal <M_counter_q>.
-    Found 5-bit register for signal <M_button_col_cycler_q>.
+    Found 6-bit register for signal <M_button_col_cycler_q>.
     Found 24-bit adder for signal <M_counter_q[23]_GND_15_o_add_4_OUT> created at line 45.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  29 D-type flip-flop(s).
+	inferred  30 D-type flip-flop(s).
 	inferred   2 Multiplexer(s).
 Unit <input_capture_16> synthesized.
 
@@ -412,8 +412,8 @@ Macro Statistics
  28-bit register                                       : 1
  32-bit register                                       : 1
  4-bit register                                        : 6
- 5-bit register                                        : 6
- 6-bit register                                        : 1
+ 5-bit register                                        : 5
+ 6-bit register                                        : 2
  8-bit register                                        : 2
 # Comparators                                          : 9
  26-bit comparator greater                             : 2
@@ -429,7 +429,8 @@ Macro Statistics
  28-bit 2-to-1 multiplexer                             : 1
  32-bit 2-to-1 multiplexer                             : 34
  4-bit 2-to-1 multiplexer                              : 3
- 5-bit 2-to-1 multiplexer                              : 52
+ 5-bit 2-to-1 multiplexer                              : 51
+ 6-bit 2-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 2
 # Logic shifters                                       : 7
  16-bit shifter arithmetic right                       : 2
@@ -524,8 +525,8 @@ Macro Statistics
  28-bit up counter                                     : 1
  4-bit up counter                                      : 1
  4-bit updown counter                                  : 2
-# Registers                                            : 173
- Flip-Flops                                            : 173
+# Registers                                            : 174
+ Flip-Flops                                            : 174
 # Comparators                                          : 9
  26-bit comparator greater                             : 2
  4-bit comparator greater                              : 5
@@ -537,7 +538,8 @@ Macro Statistics
  2-bit 2-to-1 multiplexer                              : 11
  32-bit 2-to-1 multiplexer                             : 34
  4-bit 2-to-1 multiplexer                              : 3
- 5-bit 2-to-1 multiplexer                              : 52
+ 5-bit 2-to-1 multiplexer                              : 51
+ 6-bit 2-to-1 multiplexer                              : 1
  8-bit 2-to-1 multiplexer                              : 2
 # Logic shifters                                       : 7
  16-bit shifter arithmetic right                       : 2
@@ -672,15 +674,14 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <state_m/M_speed_q_3
 Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 0) on block mojo_top_0, actual ratio is 14.
-FlipFlop state_m/dm/M_tmr_q_26 has been replicated 1 time(s)
-FlipFlop state_m/dm/M_tmr_q_27 has been replicated 1 time(s)
-FlipFlop state_m/dm/M_tmr_q_28 has been replicated 1 time(s)
+FlipFlop state_m/dm/M_tmr_q_26 has been replicated 2 time(s)
+FlipFlop state_m/dm/M_tmr_q_27 has been replicated 2 time(s)
+FlipFlop state_m/dm/M_tmr_q_28 has been replicated 2 time(s)
 FlipFlop state_m/dm/M_tmr_q_29 has been replicated 2 time(s)
-FlipFlop state_m/dm/M_tmr_q_30 has been replicated 1 time(s)
+FlipFlop state_m/dm/M_tmr_q_30 has been replicated 2 time(s)
 FlipFlop state_m/question/read_data_0 has been replicated 1 time(s)
 FlipFlop state_m/question/read_data_1 has been replicated 1 time(s)
 FlipFlop state_m/question/read_data_2 has been replicated 1 time(s)
-FlipFlop state_m/question/read_data_3 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -697,8 +698,8 @@ Unit <mojo_top_0> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 304
- Flip-Flops                                            : 304
+# Registers                                            : 308
+ Flip-Flops                                            : 308
 # Shift Registers                                      : 5
  2-bit shift register                                  : 5
 
@@ -724,7 +725,7 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-clk                                | BUFGP                  | 324   |
+clk                                | BUFGP                  | 328   |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -735,9 +736,9 @@ Timing Summary:
 ---------------
 Speed Grade: -2
 
-   Minimum period: 7.287ns (Maximum Frequency: 137.231MHz)
-   Minimum input arrival time before clock: 9.179ns
-   Maximum output required time after clock: 10.096ns
+   Minimum period: 7.344ns (Maximum Frequency: 136.166MHz)
+   Minimum input arrival time before clock: 9.254ns
+   Maximum output required time after clock: 10.166ns
    Maximum combinational path delay: No path found
 
 =========================================================================

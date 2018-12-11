@@ -9,7 +9,7 @@ module input_capture (
   ) {
  
    .clk(clk),.rst(rst){
-      dff button_col_cycler[5];   //power 5 column one by one cyclicly
+      dff button_col_cycler[6];   //power 6 column one by one cyclicly
       dff counter[24];            //A timer to control period of the cycle/speed of switching col
   }
   buttonmapping bm;
